@@ -1,0 +1,7 @@
+# Control plane (Ubuntu 20.04)
+[control_plane]
+
+
+[control_plane:vars]
+ansible_user=administrator 
+ansible_password=@ut0Lab95619
