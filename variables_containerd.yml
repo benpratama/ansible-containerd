@@ -20,3 +20,5 @@ ubt_runc_version: 1.1.13
 ubt_CNI_version: 1.5.0
 
 ubt_k8s_version: 1.28
+
+win_continerd_version: 1.7.18

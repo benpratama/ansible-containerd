@@ -1,0 +1,28 @@
+---
+- name: Install Docker on Ubuntu 20.04
+  hosts: workers_win
+  vars_files:
+    - variables_containerd.yml
+  
+  tasks:
+
+    - name: Download containerd installation script
+      win_shell: Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/microsoft/Windows-Containers/Main/helpful_tools/Install-ContainerdRuntime/install-containerd-runtime.ps1" -o install-containerd-runtime.ps1
+    
+    - name: Install containerd
+      win_shell: .\install-containerd-runtime.ps1 -ContainerDVersion {{ win_continerd_version }} -Force
+      register: containerd
+    
+    - name: Wait for the machine to reboot
+      wait_for_connection:
+        delay: 10
+        timeout: 600
+    
+    - name: Wait until containerd is finished
+      win_wait_for:
+        timeout: 90
+    
+    - name: containerd
+      debug:
+        msg: "{{ containerd.stdout_lines }}"
+    
