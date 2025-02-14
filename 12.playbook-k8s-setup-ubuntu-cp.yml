@@ -13,7 +13,7 @@
   become: yes
   vars_files:
     - secret.yml
-    - variables.yml
+    - variables_containerd.yml
 
   tasks:
 # # 1. CONFIGURING KUBELET CGROUP DRIVER
