@@ -22,3 +22,9 @@ ubt_CNI_version: 1.5.0
 ubt_k8s_version: 1.28
 
 win_continerd_version: 1.7.18
+
+win_k8s_install_dir: C:\k
+
+win_calico_version: v3.28.0
+
+win_k8s_version: 1.28.15
